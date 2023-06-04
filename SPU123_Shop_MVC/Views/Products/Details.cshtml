@@ -1,0 +1,24 @@
+﻿@model Data.Entities.Product
+
+<div class="card text-center">
+    <div class="card-header">
+        <ul class="nav nav-pills card-header-pills">
+            <li class="nav-item">
+                <a class="nav-link bg-dark active" asp-action="Index">Back</a>
+            </li>
+        </ul>
+    </div>
+    <div class="card-body">
+        <h3 class="card-title">@Model.Title</h3>
+        <img style="height:200px;" src="@Model.ImageUrl"></img>
+        <p class="card-text">@Model.Category</p>
+        <p>Price: <span class="badge bg-primary">@Model.Price$</span></p>
+        <p>City: @Model.City</p>
+        <p>Contact: @Model.Contact</p>
+        <p>Condition: @Model.Condition</p>
+        <p>Private or buisness : @Model.Price</p>
+        <h4>Description: </h4>
+        <p> @Model.Description</p>
+        <a href="#" class="btn btn-success">Buy</a>
+    </div>
+</div>

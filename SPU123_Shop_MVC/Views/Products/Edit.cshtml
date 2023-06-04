@@ -1,0 +1,57 @@
+﻿@model Data.Entities.Product;
+
+<h1>Edit Product</h1>
+
+<form asp-action="Edit" method="post" class="row g-3">
+    <div class="col-md-12">
+        <label asp-for="Title" class="form-label">Title</label>
+        <input asp-for="Title" type="text" class="form-control" placeholder="Enter product name">
+        <span asp-validation-for="Title" class="form-text text-danger"></span>
+    </div>
+
+    <div class="col-md-6">
+        <label asp-for="Price" class="form-label">Price</label>
+        <input asp-for="Price" type="number" class="form-control" placeholder="Enter product price">
+        <span asp-validation-for="Price" class="form-text text-danger"></span>
+    </div>
+    <div class="col-md-6">
+        <label asp-for="City" class="form-label">City</label>
+        <input asp-for="City" type="text" class="form-control" placeholder="Enter city">
+        <span asp-validation-for="City" class="form-text text-danger"></span>
+    </div>
+    <div class="col-md-6">
+        <label asp-for="Contact" class="form-label">Contact</label>
+        <input asp-for="Contact" type="number" class="form-control" placeholder="Enter contact">
+        <span asp-validation-for="Contact" class="form-text text-danger"></span>
+    </div>
+    <div class="col-md-6">
+        <label asp-for="Condition" class="form-label">Condition</label>
+        <select asp-for="Condition" class="form-select">
+            <option selected>Open this select menu</option>
+            <option value="Used">Used</option>
+            <option value="New">New</option>
+        </select>
+    </div>
+    <div class="col-md-6">
+        <label asp-for="ImageUrl" class="form-label">ImageUrl</label>
+        <input asp-for="ImageUrl" type="text" class="form-control" placeholder="Enter ImageUrl">
+        <span asp-validation-for="ImageUrl" class="form-text text-danger"></span>
+    </div>
+    <div class="col-md-12">
+        <label asp-for="Description" class="form-label">Description</label>
+        <textarea asp-for="Description" class="form-control" rows="3" placeholder="Enter product description"></textarea>
+        <span asp-validation-for="Description" class="form-text text-danger"></span>
+    </div>
+    <div class="col-md-12">
+        <label asp-for="CategoryId" class="form-label">Category</label>
+        <select asp-for="CategoryId" asp-items="@ViewBag.CategoryList" class="form-select">
+        </select>
+        <span asp-validation-for="CategoryId" class="form-text text-danger"></span>
+    </div>
+    <div class="col-6">
+        <a asp-action="Index" class="btn btn-dark w-100">Back</a>
+    </div>
+    <div class="col-6">
+        <button type="submit" class="btn btn-success w-100">Edit</button>
+    </div>
+</form>

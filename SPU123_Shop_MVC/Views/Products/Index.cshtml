@@ -1,0 +1,59 @@
+﻿@model List<Data.Entities.Product>
+
+<h1>Product List</h1>
+<p>You can manage the available products in the database...</p>
+<a asp-controller="Products" asp-action="Create" class="btn btn-primary">
+    <i class="bi bi-plus-lg"></i> Create New Product
+</a>
+<hr />
+
+@*Razor Syntax: @if() @{..C#..} @for ...*@
+
+@*<ul>
+    @foreach (var p in Model)
+    {
+        <li>[@p.Id] @p.Name @p.Price$</li>
+    }
+</ul>*@
+
+<table class="table">
+    <thead class="table-dark">
+        <tr>
+            <th scope="col">ID</th>
+            <th scope="col">Name</th>
+            <th scope="col">City</th>
+            <th scope="col">Category</th>
+            <th scope="col">Price</th>
+            <th scope="col">Contact</th>
+            <th scope="col">Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var p in Model)
+        {
+            <tr class="align-middle">
+                <th scope="row">@p.Id</th>
+                <td>@p.Title</td>
+                <td>@p.City</td>
+                <td>@(p.Category?.Name ?? "not loaded")</td>
+                <td>@p.Price$</td>
+                <td>@p.Contact</td>
+               
+                <td>
+                    <a asp-action="Details" asp-route-id="@p.Id" class="btn btn-info">
+                        <i class="bi bi-eye"></i>
+                    </a>
+                    <a asp-action="Edit" asp-route-id="@p.Id" class="btn btn-warning">
+                        <i class="bi bi-pencil"></i>
+                    </a>
+                    <a asp-action="Delete" asp-route-id="@p.Id" class="btn btn-danger">
+                        <i class="bi bi-trash"></i>
+                    </a>
+
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<p>Count: @Model.Count</p>

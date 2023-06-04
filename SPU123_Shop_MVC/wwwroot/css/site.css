@@ -1,0 +1,32 @@
+html {
+  font-size: 14px;
+}
+
+@media (min-width: 768px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+  margin-bottom: 60px;
+}
+
+header, footer {
+    background-color: #e3f2fd;
+}
+
+.product-card img {
+    height: 180px;
+    object-fit: contain;
+    padding: 10px 10px 10px 0;
+}
+.cart-badge {
+    top: 10px;
+    left: 87%;
+}

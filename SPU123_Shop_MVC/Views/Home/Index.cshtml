@@ -1,0 +1,49 @@
+﻿@model List<Data.Entities.Product>
+
+
+<div class="text-center">
+
+    <h1 class="display-4">Advertisment</h1>
+    @*<p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>*@
+</div>
+
+<div class="row row-cols-1 row-cols-md-3 g-4">
+    @foreach (var p in Model)
+    {
+        <div class="col">
+            <div class="card h-100 product-card">
+                <img src="@(p.ImageUrl ?? "https://cdn.shopify.com/s/files/1/0070/7032/files/image5_4578a9e6-2eff-4a5a-8d8c-9292252ec848.jpg?v=1620247043")" class="card-img-top" alt="...">
+                <div class="card-body text-center">
+                    <h5 class="card-title">@p.Title</h5>
+                    <p class="card-text">
+                        @p.Category?.Name  <span class="badge bg-primary">@p.Price$</span>
+                    </p>
+                </div>
+                <div class="card-footer text-center">
+                    <a asp-controller="Fav" asp-action="Add" asp-route-id="@p.Id" class="btn btn-outline-success">
+                        <i class="bi bi-heart"></i>
+                        
+
+                    </a>
+                    <a asp-controller="Cart" asp-action="Add" asp-route-id="@p.Id" class="btn btn-outline-success">
+                        <i class="bi bi-cart"></i>
+                        Add to Cart
+                    </a>
+                </div>
+            </div>
+        </div>
+    }
+</div>
+
+<div class="footer-top wrapper small clr brbott-12 rel">
+            <div class="text-center mt-5">
+                    <div class="small lheight16">
+                    <p class="c73">Усі онлайн-оголошення України на OLX - тут ви знайдете те, що шукали! 
+@*                            Натиснувши на кнопку <a target="_blank" href="/post-new-ad/">Подати оголошення</a>, 
+                            ви зможете розмістити оголошення на будь-яку тематику легко й швидко.<br>*@
+                            За допомогою сервісу OLX ви зможете купити чи продати з рук у руки практично все, що завгодно.</p>	<p></p>
+                    </div>
+            </div>
+
+</div>
+
